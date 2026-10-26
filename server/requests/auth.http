@@ -1,0 +1,27 @@
+### 1. Реєстрація
+POST http://localhost:5000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Artem",
+  "email": "artem@gmail.com",
+  "password": "qwerty123"
+}
+
+### 2. Логін
+POST http://localhost:5000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "artem@gmail.com",
+  "password": "qwerty123"
+}
+
+### 4. Логін із неправильним паролем
+POST http://localhost:5000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "artem@gmail.com",
+  "password": "qwerty"
+}

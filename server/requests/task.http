@@ -1,0 +1,53 @@
+### 1. Створити нове завдання (зі статусом todo)
+POST http://localhost:5000/api/tasks HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+Content-Type: application/json
+
+{
+  "title": "Зробити бекенд для TODO",
+  "description": "Express + Sequelize + PostgreSQL",
+  "status": "todo"
+}
+
+### 2. Створити завдання зі статусом in progress
+POST http://localhost:5000/api/tasks HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+Content-Type: application/json
+
+{
+  "title": "Розминка",
+  "description": "Підтягнутись",
+  "status": "in progress"
+}
+
+### 3. Отримати всі завдання користувача
+GET http://localhost:5000/api/tasks HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+
+### 4. Отримати завдання з фільтром за статусом todo
+GET http://localhost:5000/api/tasks?status=todo HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+
+### 5. Отримати завдання з фільтром за статусом in progress
+GET http://localhost:5000/api/tasks?status=in progress HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+
+### 6. Отримати конкретне завдання за id
+GET http://localhost:5000/api/tasks/13 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+
+### 7. Оновити завдання (перевести в done)
+PATCH http://localhost:5000/api/tasks/13 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
+Content-Type: application/json
+
+{
+  "status": "done"
+}
+
+### 8. Запит без токена
+GET http://localhost:5000/api/tasks HTTP/1.1
+
+### 9. Видалити завдання за id
+DELETE http://localhost:5000/api/tasks/13 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzMDE5NDY4LCJleHAiOjE3OTMxMDU4Njh9.vYW4LY1Y919c2kEmYQgXeuxWFJLeCmPWisF7JTO81vk
